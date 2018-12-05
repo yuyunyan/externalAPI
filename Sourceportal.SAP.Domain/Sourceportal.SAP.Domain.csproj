@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2F12DF12-A95F-41BB-BCCB-4C7CDEFC33B4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sourceportal.SAP.Domain</RootNamespace>
+    <AssemblyName>Sourceportal.SAP.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.5.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.5.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.5.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\DB\Organizations\CompanyDb.cs" />
+    <Compile Include="Models\DB\Organizations\OrganizationDb.cs" />
+    <Compile Include="Models\DB\Triggers\TriggerDb.cs" />
+    <Compile Include="Models\Middleware\Accounts\BusinessPartnerSync.cs" />
+    <Compile Include="Models\Middleware\Enums\MiddlewareActionType.cs" />
+    <Compile Include="Models\Middleware\Enums\MiddlewareObjectTypes.cs" />
+    <Compile Include="Models\Middleware\Enums\MiddlewareSyncDirections.cs" />
+    <Compile Include="Models\Middleware\Enums\MiddlewareSyncStatus.cs" />
+    <Compile Include="Models\Middleware\MiddlewareResponse.cs" />
+    <Compile Include="Models\Middleware\MiddlewareSyncBase.cs" />
+    <Compile Include="Models\Middleware\MiddlewareSyncRequest.cs" />
+    <Compile Include="Models\Middleware\MiddlewareSyncResponse.cs" />
+    <Compile Include="Models\Middleware\QcInspectionSync.cs" />
+    <Compile Include="Models\Requests\Accounts\AccountDetails.cs" />
+    <Compile Include="Models\Requests\Accounts\AccountHierarchyRequest.cs" />
+    <Compile Include="Models\Requests\Accounts\BusinessPartnerRequest.cs" />
+    <Compile Include="Models\Requests\Accounts\LocationDetails.cs" />
+    <Compile Include="Models\Requests\Materials\MaterialRequest.cs" />
+    <Compile Include="Models\Requests\PurchaseOrders\PurchaseOrderRequest.cs" />
+    <Compile Include="Models\Requests\Qc\QcInspectionRequest.cs" />
+    <Compile Include="Models\Requests\SalesOrders\SalesOrderDetailsRequest.cs" />
+    <Compile Include="Models\Responses\Accounts\AccountAndContactResponse.cs" />
+    <Compile Include="Models\Responses\Accounts\AccountAndLocationResponse.cs" />
+    <Compile Include="Models\Responses\Accounts\AccountContactsAndLocationsResponse.cs" />
+    <Compile Include="Models\Responses\Accounts\AccountDetailsResponse.cs" />
+    <Compile Include="Models\Responses\Accounts\AccountHierarchyResponse.cs" />
+    <Compile Include="Models\Responses\Accounts\AccountTypeDetails.cs" />
+    <Compile Include="Models\Responses\Accounts\BusinessPartnerIncomingResponse.cs" />
+    <Compile Include="Models\Responses\Accounts\BusinessPartnerQueryResponse.cs" />
+    <Compile Include="Models\Responses\Accounts\BusinessPartnerResponse.cs" />
+    <Compile Include="Models\Responses\Materials\MaterialResponse.cs" />
+    <Compile Include="Models\Responses\ProductSpec\ProductSpecResponse.cs" />
+    <Compile Include="Models\Responses\PurchaseOrders\PurchaseOrderResponse.cs" />
+    <Compile Include="Models\Responses\QC\QcInspectionResponse.cs" />
+    <Compile Include="Models\Responses\SalesOrders\SalesOrderDetailsResponse.cs" />
+    <Compile Include="Models\Responses\Shared\AddressResponse.cs" />
+    <Compile Include="Models\Responses\Shared\BaseResponse.cs" />
+    <Compile Include="Models\Responses\Shared\ContactPersonResponse.cs" />
+    <Compile Include="Models\Responses\Shared\RelationshipResponse.cs" />
+    <Compile Include="Models\Responses\Shared\SalesArrangementResponse.cs" />
+    <Compile Include="Models\Requests\Accounts\ContactDetails.cs" />
+    <Compile Include="Models\Shared\ObjectTypeEnums.cs" />
+    <Compile Include="Models\Shared\Ownership.cs" />
+    <Compile Include="Models\Shared\SapOrganizations.cs" />
+    <Compile Include="Models\Shared\SeverityCodeEnums.cs" />
+    <Compile Include="Models\Shared\TriggerXml.cs" />
+    <Compile Include="Models\WebApi\Requests\Accounts\ContactsFilter.cs" />
+    <Compile Include="Models\WebApi\Requests\Ownership\GetOwnershipRequest.cs" />
+    <Compile Include="Models\WebApi\Requests\Ownership\GetOwnershipResponse.cs" />
+    <Compile Include="Models\WebApi\Requests\Ownership\Owner.cs" />
+    <Compile Include="Models\WebApi\Responses\Accounts\AccountLocationsResponse.cs" />
+    <Compile Include="Models\WebApi\Responses\Accounts\ContactListResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

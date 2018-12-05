@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:n2="http://sap.com/xi/AP/Common/Global" xmlns:tns="http://sap.com/xi/A1S/Global" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n3="http://sap.com/xi/BASIS/Global" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:rfc="urn:sap-com:sap:rfc:functions" xmlns:n4="http://sap.com/xi/AP/Common/GDT" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:n1="http://sap.com/xi/SAPGlobal20/Global" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sap.com/xi/A1S/Global" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="BN_BN_binding_SOAP12">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedMimeSerialization xmlns:saptrnbnd="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" wsp:Optional="true" />
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:RequireClientCertificate />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sapsp:HTTPSSO2 />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" wsp:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BN_BN_binding">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedMimeSerialization xmlns:saptrnbnd="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" wsp:Optional="true" />
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:RequireClientCertificate />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sapsp:HTTPSSO2 />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" wsp:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IF_IF_QueryBusinessPartnerHierarchy">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>false</sapsession:enableSession>
+    </sapsession:Session>
+    <sapcentraladmin:CentralAdministration xmlns:sapcentraladmin="http://www.sap.com/webas/700/soap/features/CentralAdministration/" wsp:Optional="true">
+      <sapcentraladmin:BusinessApplicationID>00163E0BB03B1ED69C91E1FC75DB9738</sapcentraladmin:BusinessApplicationID>
+    </sapcentraladmin:CentralAdministration>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_FindByIdentification">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/BASIS/Global" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/AP/Common/GDT" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/SAPGlobal20/Global">
+      <xsd:import namespace="http://sap.com/xi/A1S/Global" />
+      <xsd:element name="BusinessPartnerHierarchyByIdentificationQuery_sync" type="xi2:BusinessPartnerHierarchyByIdentificationQueryMessage_sync" />
+      <xsd:element name="BusinessPartnerHierarchyByIdentificationResponse_sync" type="xi2:BusinessPartnerHierarchyResponseMessage_sync" />
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/BASIS/Global" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/AP/Common/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/AP/Common/GDT" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/AP/Common/Global">
+      <xsd:import namespace="http://sap.com/xi/AP/Common/GDT" />
+      <xsd:complexType name="ExchangeFaultData">
+        <xsd:sequence>
+          <xsd:element name="faultText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="faultUrl" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="faultDetail" type="xi1:ExchangeLogData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ExchangeLogData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="severity" type="xsd:string" />
+          <xsd:element name="text" type="xsd:string" />
+          <xsd:element minOccurs="0" name="url" type="xsd:string" />
+          <xsd:element minOccurs="0" name="id" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="StandardFaultMessageExtension">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Log" type="xi4:Log" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="StandardFaultMessage">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="standard" type="xi1:ExchangeFaultData" />
+            <xsd:element name="addition" type="xi1:StandardFaultMessageExtension" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/BASIS/Global" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/A1S/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/AP/Common/GDT" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/A1S/Global">
+      <xsd:import namespace="http://sap.com/xi/AP/Common/GDT" />
+      <xsd:complexType name="BusinessPartnerHierarchyByIdentificationQueryMessage_sync">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="BusinessPartnerHierarchySelectionByIdentification" type="xi2:BusinessPartnerHierarchySelectionByIdentification" />
+          <xsd:element minOccurs="0" name="ProcessingConditions" type="xi4:QueryProcessingConditions" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchyQueryRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="UUID" type="xi4:UUID" />
+          <xsd:element minOccurs="0" name="ID" type="xi4:BusinessPartnerHierarchyID" />
+          <xsd:element minOccurs="0" name="Name" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element maxOccurs="unbounded" name="Group" type="xi2:BusinessPartnerHierarchyQueryRequestGroup" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchyQueryRequestGroup">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="UUID" type="xi4:UUID" />
+          <xsd:element name="ID" type="xi4:BusinessPartnerHierarchyGroupID" />
+          <xsd:element minOccurs="0" name="Name" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="Note" type="xi4:LANGUAGEINDEPENDENT_Text" />
+          <xsd:element minOccurs="0" name="ParentGroupUUID" type="xi4:UUID" />
+          <xsd:element minOccurs="0" name="ParentID" type="xi4:BusinessPartnerHierarchyGroupID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="BusinessPartner" type="xi2:BusinessPartnerHierarchyQueryRequestGroupBusinessPartner" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchyQueryRequestGroupBusinessPartner">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="UUID" type="xi4:UUID" />
+          <xsd:element minOccurs="0" name="InternalID" type="xi4:BusinessPartnerInternalID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchyResponseMessage_sync">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Hierarchy" type="xi2:BusinessPartnerHierarchyQueryRequest" />
+          <xsd:element minOccurs="0" name="ProcessingConditions" type="xi4:ResponseProcessingConditions" />
+          <xsd:element minOccurs="0" name="Log" type="xi4:Log" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByBusinessPartnerInternalID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryInternalID" type="xi4:BusinessPartnerInternalID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryInternalID" type="xi4:BusinessPartnerInternalID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByBusinessPartnerName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryBusinessPartnerName" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryBusinessPartnerName" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByBusinessPartnerUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryBusinessPartnerUUID" type="xi4:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryBusinessPartnerUUID" type="xi4:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByGroupID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryGroupID" type="xi4:BusinessPartnerHierarchyGroupID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryGroupID" type="xi4:BusinessPartnerHierarchyGroupID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByGroupName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryGroupName" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryGroupName" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByGroupUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryGroupUUID" type="xi4:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryGroupUUID" type="xi4:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryHierarchyID" type="xi4:BusinessPartnerHierarchyID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryHierarchyID" type="xi4:BusinessPartnerHierarchyID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByIdentification">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByID" type="xi2:BusinessPartnerHierarchySelectionByID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByName" type="xi2:BusinessPartnerHierarchySelectionByName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByUUID" type="xi2:BusinessPartnerHierarchySelectionByUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByUsageCode" type="xi2:BusinessPartnerHierarchySelectionByUsageCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByCreationIdentityID" type="xi2:BusinessPartnerHierarchySelectionByIdentityID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByGroupID" type="xi2:BusinessPartnerHierarchySelectionByGroupID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByGroupUUID" type="xi2:BusinessPartnerHierarchySelectionByGroupUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByGroupName" type="xi2:BusinessPartnerHierarchySelectionByGroupName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByBusinessPartnerUUID" type="xi2:BusinessPartnerHierarchySelectionByBusinessPartnerUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByBusinessPartnerInternalID" type="xi2:BusinessPartnerHierarchySelectionByBusinessPartnerInternalID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByBusinessPartnerName" type="xi2:BusinessPartnerHierarchySelectionByBusinessPartnerName" />
+          <xsd:element minOccurs="0" name="SelectionBySearchText" type="xi4:SearchText" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByIdentityID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryIdentityID" type="xi4:IdentityID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryIdentityID" type="xi4:IdentityID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryName" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryName" type="xi4:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryUUID" type="xi4:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryUUID" type="xi4:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessPartnerHierarchySelectionByUsageCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi4:InclusionExclusionCode" />
+          <xsd:element minOccurs="0" name="IntervalBoundaryTypeCode" type="xi4:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryUsageCode" type="xi4:BusinessPartnerHierarchyUsageCode" />
+          <xsd:element minOccurs="0" name="UpperBoundaryUsageCode" type="xi4:BusinessPartnerHierarchyUsageCode" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/BASIS/Global" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/BASIS/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/AP/Common/GDT" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/BASIS/Global">
+      <xsd:simpleType name="AgencyIdentificationCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="1" />
+          <xsd:enumeration value="5" />
+          <xsd:enumeration value="6" />
+          <xsd:enumeration value="16" />
+          <xsd:enumeration value="17" />
+          <xsd:enumeration value="84" />
+          <xsd:enumeration value="107" />
+          <xsd:enumeration value="109" />
+          <xsd:enumeration value="112" />
+          <xsd:enumeration value="113" />
+          <xsd:enumeration value="114" />
+          <xsd:enumeration value="116" />
+          <xsd:enumeration value="117" />
+          <xsd:enumeration value="124" />
+          <xsd:enumeration value="130" />
+          <xsd:enumeration value="131" />
+          <xsd:enumeration value="138" />
+          <xsd:enumeration value="142" />
+          <xsd:enumeration value="146" />
+          <xsd:enumeration value="262" />
+          <xsd:enumeration value="296" />
+          <xsd:enumeration value="310" />
+          <xsd:maxLength value="3" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/BASIS/Global" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/AP/Common/GDT" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/AP/Common/GDT" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/AP/Common/GDT">
+      <xsd:import namespace="http://sap.com/xi/BASIS/Global" />
+      <xsd:simpleType name="BusinessPartnerHierarchyGroupID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="20" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="BusinessPartnerHierarchyID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi4:BusinessPartnerHierarchyID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="BusinessPartnerHierarchyID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="20" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BusinessPartnerHierarchyUsageCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BusinessPartnerInternalID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="10" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="IdentityID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi4:IdentityID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeVersionID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="15" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeAgencyID" type="xi3:AgencyIdentificationCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="IdentityID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="InclusionExclusionCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="1" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Indicator">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Indicator</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:boolean" />
+      </xsd:simpleType>
+      <xsd:simpleType name="IntervalBoundaryTypeCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="1" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LANGUAGEINDEPENDENT_MEDIUM_Name">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Name</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LANGUAGEINDEPENDENT_Name">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Name</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string" />
+      </xsd:simpleType>
+      <xsd:simpleType name="LANGUAGEINDEPENDENT_Text">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string" />
+      </xsd:simpleType>
+      <xsd:complexType name="Log">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="BusinessDocumentProcessingResultCode" type="xi4:ProcessingResultCode" />
+          <xsd:element minOccurs="0" name="MaximumLogItemSeverityCode" type="xi4:LogItemSeverityCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Item" type="xi4:LogItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LogItem">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TypeID" type="xi4:LogItemTypeID" />
+          <xsd:element minOccurs="0" name="CategoryCode" type="xi4:LogItemCategoryCode" />
+          <xsd:element minOccurs="0" name="SeverityCode" type="xi4:LogItemSeverityCode" />
+          <xsd:element minOccurs="0" name="ReferenceObjectNodeSenderTechnicalID" type="xi4:ObjectNodePartyTechnicalID" />
+          <xsd:element minOccurs="0" name="ReferenceMessageElementName" type="xi4:LANGUAGEINDEPENDENT_Name" />
+          <xsd:element name="Note" type="xi4:LogItemNote" />
+          <xsd:element minOccurs="0" name="NoteTemplateText" type="xi4:LogItemNoteTemplateText" />
+          <xsd:element minOccurs="0" name="LogItemNotePlaceholderSubstitutionList" type="xi4:LogItemNotePlaceholderSubstitutionList" />
+          <xsd:element minOccurs="0" name="WebURI" type="xi4:WebURI" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LogItemCategoryCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi4:LogItemCategoryCode.Content">
+            <xsd:attribute name="listID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listVersionID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="15" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencySchemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencySchemeAgencyID" type="xi3:AgencyIdentificationCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="LogItemCategoryCode.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="15" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemNote">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Note</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="200" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="LogItemNotePlaceholderSubstitutionList">
+        <xsd:sequence>
+          <xsd:element name="FirstPlaceholderID" type="xi4:LogItemTemplatePlaceholderID" />
+          <xsd:element minOccurs="0" name="SecondPlaceholderID" type="xi4:LogItemTemplatePlaceholderID" />
+          <xsd:element minOccurs="0" name="ThirdPlaceholderID" type="xi4:LogItemTemplatePlaceholderID" />
+          <xsd:element minOccurs="0" name="FourthPlaceholderID" type="xi4:LogItemTemplatePlaceholderID" />
+          <xsd:element name="FirstPlaceholderSubstitutionText" type="xi4:LogItemPlaceholderSubstitutionText" />
+          <xsd:element minOccurs="0" name="SecondPlaceholderSubstitutionText" type="xi4:LogItemPlaceholderSubstitutionText" />
+          <xsd:element minOccurs="0" name="ThirdPlaceholderSubstitutionText" type="xi4:LogItemPlaceholderSubstitutionText" />
+          <xsd:element minOccurs="0" name="FourthPlaceholderSubstitutionText" type="xi4:LogItemPlaceholderSubstitutionText" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="LogItemNoteTemplateText">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="73" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemPlaceholderSubstitutionText">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemSeverityCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="1" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemTemplatePlaceholderID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:length value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemTypeID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NumberValue">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Value</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:int">
+          <xsd:maxInclusive value="999999999" />
+          <xsd:minInclusive value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ObjectID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi4:ObjectID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeVersionID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="15" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeAgencyID" type="xi3:AgencyIdentificationCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="ObjectID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="100" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ObjectNodePartyTechnicalID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="70" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ProcessingResultCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="QueryProcessingConditions">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="QueryHitsMaximumNumberValue" type="xi4:NumberValue" />
+          <xsd:element name="QueryHitsUnlimitedIndicator" type="xi4:Indicator" />
+          <xsd:element minOccurs="0" name="LastReturnedObjectID" type="xi4:ObjectID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ResponseProcessingConditions">
+        <xsd:sequence>
+          <xsd:element name="ReturnedQueryHitsNumberValue" type="xi4:NumberValue" />
+          <xsd:element name="MoreHitsAvailableIndicator" type="xi4:Indicator" />
+          <xsd:element minOccurs="0" name="LastReturnedObjectID" type="xi4:ObjectID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="SearchText">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string" />
+      </xsd:simpleType>
+      <xsd:complexType name="UUID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi4:UUID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="UUID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="36" />
+          <xsd:minLength value="36" />
+          <xsd:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="WebURI">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>URI</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:anyURI" />
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BusinessPartnerHierarchyByIdentificationQuery_sync">
+    <wsdl:part name="BusinessPartnerHierarchyByIdentificationQuery_sync" element="n1:BusinessPartnerHierarchyByIdentificationQuery_sync" />
+  </wsdl:message>
+  <wsdl:message name="BusinessPartnerHierarchyByIdentificationResponse_sync">
+    <wsdl:part name="BusinessPartnerHierarchyByIdentificationResponse_sync" element="n1:BusinessPartnerHierarchyByIdentificationResponse_sync" />
+  </wsdl:message>
+  <wsdl:message name="StandardFaultMessage">
+    <wsdl:part name="StandardFaultMessage" element="n2:StandardFaultMessage" />
+  </wsdl:message>
+  <wsdl:portType name="QueryBusinessPartnerHierarchy">
+    <wsdl:documentation>
+      <sapdoc:sapdoc xmlns:sapdoc="urn:sap:esi:documentation">
+        <sapdoc:docitem applicationComponent="AP-BP-HIE" />
+      </sapdoc:sapdoc>
+    </wsdl:documentation>
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_QueryBusinessPartnerHierarchy" />
+    </wsp:Policy>
+    <wsdl:operation name="FindByIdentification">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_FindByIdentification" />
+      </wsp:Policy>
+      <wsdl:input message="tns:BusinessPartnerHierarchyByIdentificationQuery_sync" />
+      <wsdl:output message="tns:BusinessPartnerHierarchyByIdentificationResponse_sync" />
+      <wsdl:fault name="StandardFaultMessage" message="tns:StandardFaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="binding_SOAP12" type="tns:QueryBusinessPartnerHierarchy">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_binding_SOAP12" />
+    </wsp:Policy>
+    <wsoap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindByIdentification">
+      <wsoap12:operation soapAction="http://sap.com/xi/A1S/Global/QueryBusinessPartnerHierarchy/FindByIdentificationRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StandardFaultMessage">
+        <wsoap12:fault use="literal" name="StandardFaultMessage" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="binding" type="tns:QueryBusinessPartnerHierarchy">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_binding" />
+    </wsp:Policy>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindByIdentification">
+      <soap:operation soapAction="http://sap.com/xi/A1S/Global/QueryBusinessPartnerHierarchy/FindByIdentificationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StandardFaultMessage">
+        <soap:fault use="literal" name="StandardFaultMessage" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="service">
+    <wsdl:port name="binding_SOAP12" binding="tns:binding_SOAP12">
+      <wsoap12:address location="https://my338695.sapbydesign.com/sap/bc/srt/scs/sap/querybusinesspartnerhierarchy?sap-vhost=my338695.sapbydesign.com" />
+    </wsdl:port>
+    <wsdl:port name="binding" binding="tns:binding">
+      <soap:address location="https://my338695.sapbydesign.com/sap/bc/srt/scs/sap/querybusinesspartnerhierarchy?sap-vhost=my338695.sapbydesign.com" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

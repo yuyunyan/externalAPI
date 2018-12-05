@@ -1,0 +1,1924 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:n2="http://sap.com/xi/AP/Common/Global" xmlns:tns="http://sap.com/xi/A1S/Global" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n3="http://sap.com/xi/AP/Common/GDT" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:rfc="urn:sap-com:sap:rfc:functions" xmlns:n4="http://sap.com/xi/BASIS/Global" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:n1="http://sap.com/xi/SAPGlobal20/Global" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sap.com/xi/A1S/Global" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="BN_BN_binding_SOAP12">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedMimeSerialization xmlns:saptrnbnd="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" wsp:Optional="true" />
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:RequireClientCertificate />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sapsp:HTTPSSO2 />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" wsp:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BN_BN_binding">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedMimeSerialization xmlns:saptrnbnd="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" wsp:Optional="true" />
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:RequireClientCertificate />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sapsp:HTTPSSO2 />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" wsp:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IF_IF_QueryProductRequirementSpecificationIn">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>false</sapsession:enableSession>
+    </sapsession:Session>
+    <sapcentraladmin:CentralAdministration xmlns:sapcentraladmin="http://www.sap.com/webas/700/soap/features/CentralAdministration/" wsp:Optional="true">
+      <sapcentraladmin:BusinessApplicationID>00163E0BB03B1ED69C91E1FC75DB9738</sapcentraladmin:BusinessApplicationID>
+    </sapcentraladmin:CentralAdministration>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_FindSimpleByElements">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/AP/Common/GDT" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/BASIS/Global" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/SAPGlobal20/Global">
+      <xsd:import namespace="http://sap.com/xi/A1S/Global" />
+      <xsd:element name="ProductRequirementSpecificationSimpleByElementsQuery_sync" type="xi2:ProductRequirementSpecificationSimpleByElementsQueryMessage_sync" />
+      <xsd:element name="ProductRequirementSpecificationSimpleByElementsResponse_sync" type="xi2:ProductRequirementSpecificationSimpleByElementsResponseMessage_sync" />
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/AP/Common/GDT" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/AP/Common/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/BASIS/Global" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/AP/Common/Global">
+      <xsd:import namespace="http://sap.com/xi/AP/Common/GDT" />
+      <xsd:complexType name="ExchangeFaultData">
+        <xsd:sequence>
+          <xsd:element name="faultText" type="xsd:string" />
+          <xsd:element minOccurs="0" name="faultUrl" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="faultDetail" type="xi1:ExchangeLogData" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ExchangeLogData">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="severity" type="xsd:string" />
+          <xsd:element name="text" type="xsd:string" />
+          <xsd:element minOccurs="0" name="url" type="xsd:string" />
+          <xsd:element minOccurs="0" name="id" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="StandardFaultMessageExtension">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Log" type="xi3:Log" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="StandardFaultMessage">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="standard" type="xi1:ExchangeFaultData" />
+            <xsd:element name="addition" type="xi1:StandardFaultMessageExtension" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/AP/Common/GDT" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/A1S/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/BASIS/Global" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/A1S/Global">
+      <xsd:import namespace="http://sap.com/xi/BASIS/Global" />
+      <xsd:import namespace="http://sap.com/xi/AP/Common/GDT" />
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValDateTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryDateTime" type="xi4:DateTime" />
+          <xsd:element minOccurs="0" name="UpperBoundaryDateTime" type="xi4:DateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValDecValue">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryDecimalValue" type="xi3:DecimalValue" />
+          <xsd:element minOccurs="0" name="UpperBoundaryDecimalValue" type="xi3:DecimalValue" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValInd">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryIndicator" type="xi3:Indicator" />
+          <xsd:element minOccurs="0" name="UpperBoundaryIndicator" type="xi3:Indicator" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValIntegValue">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryIntegerValue" type="xi3:IntegerValue" />
+          <xsd:element minOccurs="0" name="UpperBoundaryIntegerValue" type="xi3:IntegerValue" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValQuantity">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryQuantity" type="xi3:Quantity" />
+          <xsd:element minOccurs="0" name="UpperBoundaryQuantity" type="xi3:Quantity" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibParPropDTVerUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryParentPropertyDataTypeVersionUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryParentPropertyDataTypeVersionUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibPropID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryPropertyID" type="xi3:PropertyID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryPropertyID" type="xi3:PropertyID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibPropVerID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryPropertyVersionID" type="xi3:VersionID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryPropertyVersionID" type="xi3:VersionID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelBySpecFolPPVLPropVerKeyPLibParPropDTVerUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryParentPropertyDataTypeVersionUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryParentPropertyDataTypeVersionUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelBySpecFolPPVLPropVerKeyPLibPropID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryPropertyID" type="xi3:PropertyID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryPropertyID" type="xi3:PropertyID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelBySpecFolPPVLPropVerKeyPLibPropVerID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryPropertyVersionID" type="xi3:VersionID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryPropertyVersionID" type="xi3:VersionID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByCreationBusinessPartnerCommonPersonNameFamilyName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryCreationBusinessPartnerCommonPersonNameFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryCreationBusinessPartnerCommonPersonNameFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByCreationBusinessPartnerCommonPersonNameGivenName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryCreationBusinessPartnerCommonPersonNameGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryCreationBusinessPartnerCommonPersonNameGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByDescription">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryDescription" type="xi3:MEDIUM_Description" />
+          <xsd:element minOccurs="0" name="UpperBoundaryDescription" type="xi3:MEDIUM_Description" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryID" type="xi3:RequirementSpecificationID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryID" type="xi3:RequirementSpecificationID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByLastChangeBusinessPartnerCommonPersonNameFamilyName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryLastChangeBusinessPartnerCommonPersonNameFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryLastChangeBusinessPartnerCommonPersonNameFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByLastChangeBusinessPartnerCommonPersonNameGivenName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryLastChangeBusinessPartnerCommonPersonNameGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryLastChangeBusinessPartnerCommonPersonNameGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProcessingInformationID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderProcessingInformationID" type="xi3:RequirementSpecificationProcessingInformationFolderProcessingInformationID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderProcessingInformationID" type="xi3:RequirementSpecificationProcessingInformationFolderProcessingInformationID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProcessingInformationName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderProcessingInformationName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderProcessingInformationName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryCode" type="xi3:Code" />
+          <xsd:element minOccurs="0" name="UpperBoundaryCode" type="xi3:Code" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueDate">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryDate" type="xi3:Date" />
+          <xsd:element minOccurs="0" name="UpperBoundaryDate" type="xi3:Date" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueText">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryText" type="xi3:REGIONDEPENDENTLANGUAGE_Text" />
+          <xsd:element minOccurs="0" name="UpperBoundaryText" type="xi3:REGIONDEPENDENTLANGUAGE_Text" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryTime" type="xi3:Time" />
+          <xsd:element minOccurs="0" name="UpperBoundaryTime" type="xi3:Time" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderProductPropertyValuationListPropertyName" type="xi3:EXTENDED_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderProductPropertyValuationListPropertyName" type="xi3:EXTENDED_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyValuationUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderProductPropertyValuationListPropertyValuationUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderProductPropertyValuationListPropertyValuationUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyValueName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderProductPropertyValuationListPropertyValueName" type="xi3:EXTENDED_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderProductPropertyValuationListPropertyValueName" type="xi3:EXTENDED_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyValueUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderProductPropertyValuationListPropertyValueUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderProductPropertyValuationListPropertyValueUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyVersionUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderProductPropertyValuationListPropertyVersionUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderProductPropertyValuationListPropertyVersionUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderResponsibleEmployeeUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderResponsibleEmployeeUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderResponsibleEmployeeUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderResponsibleFamilyName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderResponsibleFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderResponsibleFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByProcessingInformationFolderResponsibleGivenName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProcessingInformationFolderResponsibleGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProcessingInformationFolderResponsibleGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementCreationProcessingStatusCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderRequirementCreationProcessingStatusCode" type="xi3:ProcessingStatusCode" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderRequirementCreationProcessingStatusCode" type="xi3:ProcessingStatusCode" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderRequirementID" type="xi3:RequirementSpecificationRequirementFolderRequirementID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderRequirementID" type="xi3:RequirementSpecificationRequirementFolderRequirementID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderRequirementName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderRequirementName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementSolutionProposalStatusCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderRequirementSolutionProposalStatusCode" type="xi3:SolutionProposalStatusCode" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderRequirementSolutionProposalStatusCode" type="xi3:SolutionProposalStatusCode" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleEmployeeID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderResponsibleEmployeeID" type="xi3:EmployeeID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderResponsibleEmployeeID" type="xi3:EmployeeID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleEmployeeUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderResponsibleEmployeeUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderResponsibleEmployeeUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleFamilyName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderResponsibleFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderResponsibleFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleGivenName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementFolderResponsibleGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementFolderResponsibleGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialDescription">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementObjectIndividualMaterialDescription" type="xi3:SHORT_Description" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementObjectIndividualMaterialDescription" type="xi3:SHORT_Description" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialKeyProductID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProductID" type="xi3:ProductID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProductID" type="xi3:ProductID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialKeyProductIdentifierTypeCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProductIdentifierTypeCode" type="xi3:ProductIdentifierTypeCode" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProductIdentifierTypeCode" type="xi3:ProductIdentifierTypeCode" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementObjectIndividualMaterialUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementObjectIndividualMaterialUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialDescription">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementObjectMaterialDescription" type="xi3:SHORT_Description" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementObjectMaterialDescription" type="xi3:SHORT_Description" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialKeyProductID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProductID" type="xi3:ProductID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProductID" type="xi3:ProductID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialKeyProductIdentifierTypeCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryProductIdentifierTypeCode" type="xi3:ProductIdentifierTypeCode" />
+          <xsd:element minOccurs="0" name="UpperBoundaryProductIdentifierTypeCode" type="xi3:ProductIdentifierTypeCode" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryRequirementObjectMaterialUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryRequirementObjectMaterialUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySearchText">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySearchText" type="xi3:SearchText" />
+          <xsd:element minOccurs="0" name="UpperBoundarySearchText" type="xi3:SearchText" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryCode" type="xi3:Code" />
+          <xsd:element minOccurs="0" name="UpperBoundaryCode" type="xi3:Code" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDate">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryDate" type="xi3:Date" />
+          <xsd:element minOccurs="0" name="UpperBoundaryDate" type="xi3:Date" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDateTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryDateTime" type="xi4:DateTime" />
+          <xsd:element minOccurs="0" name="UpperBoundaryDateTime" type="xi4:DateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDecimalValue">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryDecimalValue" type="xi3:DecimalValue" />
+          <xsd:element minOccurs="0" name="UpperBoundaryDecimalValue" type="xi3:DecimalValue" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueIndicator">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryIndicator" type="xi3:Indicator" />
+          <xsd:element minOccurs="0" name="UpperBoundaryIndicator" type="xi3:Indicator" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueIntegerValue">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryIntegerValue" type="xi3:IntegerValue" />
+          <xsd:element minOccurs="0" name="UpperBoundaryIntegerValue" type="xi3:IntegerValue" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueQuantity">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryQuantity" type="xi3:Quantity" />
+          <xsd:element minOccurs="0" name="UpperBoundaryQuantity" type="xi3:Quantity" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueText">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryText" type="xi3:REGIONDEPENDENTLANGUAGE_Text" />
+          <xsd:element minOccurs="0" name="UpperBoundaryText" type="xi3:REGIONDEPENDENTLANGUAGE_Text" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryTime" type="xi3:Time" />
+          <xsd:element minOccurs="0" name="UpperBoundaryTime" type="xi3:Time" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderProductPropertyValuationListPropertyName" type="xi3:EXTENDED_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderProductPropertyValuationListPropertyName" type="xi3:EXTENDED_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyValuationUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderProductPropertyValuationListPropertyValuationUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderProductPropertyValuationListPropertyValuationUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyValueName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderProductPropertyValuationListPropertyValueName" type="xi3:EXTENDED_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderProductPropertyValuationListPropertyValueName" type="xi3:EXTENDED_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyValueUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderProductPropertyValuationListPropertyValueUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderProductPropertyValuationListPropertyValueUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryPropertyLibraryUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryPropertyLibraryUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyVersionUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderProductPropertyValuationListPropertyVersionUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderProductPropertyValuationListPropertyVersionUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleEmployeeID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderResponsibleEmployeeID" type="xi3:EmployeeID" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderResponsibleEmployeeID" type="xi3:EmployeeID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleEmployeeUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderResponsibleEmployeeUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderResponsibleEmployeeUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleFamilyName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderResponsibleFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderResponsibleFamilyName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleGivenName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderResponsibleGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderResponsibleGivenName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderSpecificationCreationProcessingStatusCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderSpecificationCreationProcessingStatusCode" type="xi3:ProcessingStatusCode" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderSpecificationCreationProcessingStatusCode" type="xi3:ProcessingStatusCode" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderSpecificationID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderSpecificationID" type="xi3:RequirementSpecificationSpecificationFolderSpecificationID" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderSpecificationID" type="xi3:RequirementSpecificationSpecificationFolderSpecificationID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySpecificationFolderSpecificationName">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundarySpecificationFolderSpecificationName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="UpperBoundarySpecificationFolderSpecificationName" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByStatusLifeCycleStatusCode">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryLifeCycleStatusCode" type="xi3:RequirementSpecificationLifeCycleStatusCode" />
+          <xsd:element minOccurs="0" name="UpperBoundaryLifeCycleStatusCode" type="xi3:RequirementSpecificationLifeCycleStatusCode" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataCreationDateTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryCreationDateTime" type="xi4:GLOBAL_DateTime" />
+          <xsd:element minOccurs="0" name="UpperBoundaryCreationDateTime" type="xi4:GLOBAL_DateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataCreationIdentityUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryCreationIdentityUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryCreationIdentityUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataLastChangeDateTime">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryLastChangeDateTime" type="xi4:GLOBAL_DateTime" />
+          <xsd:element minOccurs="0" name="UpperBoundaryLastChangeDateTime" type="xi4:GLOBAL_DateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataLastChangeIdentityUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryLastChangeIdentityUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryLastChangeIdentityUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByUUID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PRS_SimpleByElemQuerySelectionByVersionID">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InclusionExclusionCode" type="xi3:InclusionExclusionCode" />
+          <xsd:element name="IntervalBoundaryTypeCode" type="xi3:IntervalBoundaryTypeCode" />
+          <xsd:element minOccurs="0" name="LowerBoundaryVersionID" type="xi3:VersionID" />
+          <xsd:element minOccurs="0" name="UpperBoundaryVersionID" type="xi3:VersionID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductRequirementSpecificationSimpleByElementsQuery">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByUUID" type="xi2:PRS_SimpleByElemQuerySelectionByUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByID" type="xi2:PRS_SimpleByElemQuerySelectionByID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByVersionID" type="xi2:PRS_SimpleByElemQuerySelectionByVersionID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySystemAdministrativeDataCreationDateTime" type="xi2:PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataCreationDateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySystemAdministrativeDataCreationIdentityUUID" type="xi2:PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataCreationIdentityUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySystemAdministrativeDataLastChangeDateTime" type="xi2:PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataLastChangeDateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySystemAdministrativeDataLastChangeIdentityUUID" type="xi2:PRS_SimpleByElemQuerySelectionBySystemAdministrativeDataLastChangeIdentityUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByCreationBusinessPartnerCommonPersonNameGivenName" type="xi2:PRS_SimpleByElemQuerySelectionByCreationBusinessPartnerCommonPersonNameGivenName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByCreationBusinessPartnerCommonPersonNameFamilyName" type="xi2:PRS_SimpleByElemQuerySelectionByCreationBusinessPartnerCommonPersonNameFamilyName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByLastChangeBusinessPartnerCommonPersonNameGivenName" type="xi2:PRS_SimpleByElemQuerySelectionByLastChangeBusinessPartnerCommonPersonNameGivenName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByLastChangeBusinessPartnerCommonPersonNameFamilyName" type="xi2:PRS_SimpleByElemQuerySelectionByLastChangeBusinessPartnerCommonPersonNameFamilyName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByName" type="xi2:PRS_SimpleByElemQuerySelectionByName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByDescription" type="xi2:PRS_SimpleByElemQuerySelectionByDescription" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByStatusLifeCycleStatusCode" type="xi2:PRS_SimpleByElemQuerySelectionByStatusLifeCycleStatusCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderResponsibleEmployeeUUID" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleEmployeeUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderResponsibleEmployeeID" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleEmployeeID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderResponsibleGivenName" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleGivenName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderResponsibleFamilyName" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderResponsibleFamilyName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderRequirementID" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderRequirementName" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderRequirementCreationProcessingStatusCode" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementCreationProcessingStatusCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementFolderRequirementSolutionProposalStatusCode" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementFolderRequirementSolutionProposalStatusCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderResponsibleEmployeeUUID" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleEmployeeUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderResponsibleEmployeeID" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleEmployeeID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderResponsibleGivenName" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleGivenName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderResponsibleFamilyName" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderResponsibleFamilyName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderSpecificationID" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderSpecificationID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderSpecificationName" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderSpecificationName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyVersionUUID" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyVersionUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyValuationUUID" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyValuationUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryPropertyID" type="xi2:PRS_SimpleByElemQuerySelBySpecFolPPVLPropVerKeyPLibPropID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryUUID" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryParentPropertyDataTypeVersion" type="xi2:PRS_SimpleByElemQuerySelBySpecFolPPVLPropVerKeyPLibParPropDTVerUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryPropertyVersionID" type="xi2:PRS_SimpleByElemQuerySelBySpecFolPPVLPropVerKeyPLibPropVerID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyName" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyValueUUID" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyValueUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueQuantity" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueQuantity" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDecimalValue" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDecimalValue" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueIntegerValue" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueIntegerValue" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDate" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDate" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueTime" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDateTime" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueDateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueIndicator" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueIndicator" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueCode" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueText" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListLowerBoundaryPropertyValueText" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderProductPropertyValuationListPropertyValueName" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderProductPropertyValuationListPropertyValueName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySpecificationFolderSpecificationCreationProcessingStatusCode" type="xi2:PRS_SimpleByElemQuerySelectionBySpecificationFolderSpecificationCreationProcessingStatusCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderResponsibleEmployeeUUID" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderResponsibleEmployeeUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderResponsibleGivenName" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderResponsibleGivenName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderResponsibleFamilyName" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderResponsibleFamilyName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProcessingInformationID" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProcessingInformationID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProcessingInformationName" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProcessingInformationName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyVersionUUID" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyVersionUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyValuationUUID" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyValuationUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryPropertyID" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibPropID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryUUID" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryParentPropertyDataTyp" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibParPropDTVerUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyVersionKeyPropertyLibraryPropertyVersionID" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLPropVerKeyPLibPropVerID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyName" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyValueUUID" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyValueUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueQuantity" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValQuantity" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueDecimalValue" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValDecValue" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueIntegerValue" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValIntegValue" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueDate" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueDate" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueTime" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueDateTime" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValDateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueIndicator" type="xi2:PRS_SimpleByElemQuerySelByPIFolPPVLLowBoundPropValInd" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueCode" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueText" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListLowerBoundaryPropertyValueText" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByProcessingInformationFolderProductPropertyValuationListPropertyValueName" type="xi2:PRS_SimpleByElemQuerySelectionByProcessingInformationFolderProductPropertyValuationListPropertyValueName" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectMaterialUUID" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectMaterialKeyProductIdentifierTypeCode" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialKeyProductIdentifierTypeCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectMaterialKeyProductID" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialKeyProductID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectMaterialDescription" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectMaterialDescription" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectIndividualMaterialUUID" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialUUID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectIndividualMaterialKeyProductIdentifierTypeCode" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialKeyProductIdentifierTypeCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectIndividualMaterialKeyProductID" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialKeyProductID" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionByRequirementObjectIndividualMaterialDescription" type="xi2:PRS_SimpleByElemQuerySelectionByRequirementObjectIndividualMaterialDescription" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SelectionBySearchText" type="xi2:PRS_SimpleByElemQuerySelectionBySearchText" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductRequirementSpecificationSimpleByElementsQueryMessage_sync">
+        <xsd:sequence>
+          <xsd:element name="ProductRequirementSpecificationSimpleSelectionByElements" type="xi2:ProductRequirementSpecificationSimpleByElementsQuery" />
+          <xsd:element name="ProcessingConditions" type="xi3:QueryProcessingConditions" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductRequirementSpecificationSimpleByElementsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="VersionUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="ID" type="xi3:RequirementSpecificationID" />
+          <xsd:element minOccurs="0" name="VersionID" type="xi3:VersionID" />
+          <xsd:element minOccurs="0" name="Name" type="xi3:LANGUAGEINDEPENDENT_MEDIUM_Name" />
+          <xsd:element minOccurs="0" name="IntendedForReuseIndicator" type="xi3:Indicator" />
+          <xsd:element minOccurs="0" name="SystemAdministrativeData" type="xi3:SystemAdministrativeData" />
+          <xsd:element minOccurs="0" name="Status" type="xi2:ProductRequirementSpecificationSimpleByElementsResponseStatus" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductRequirementSpecificationSimpleByElementsResponseMessage_sync">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ProductRequirementSpecification" type="xi2:ProductRequirementSpecificationSimpleByElementsResponse" />
+          <xsd:element minOccurs="0" name="ProcessingConditions" type="xi3:ResponseProcessingConditions" />
+          <xsd:element name="Log" type="xi3:Log" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductRequirementSpecificationSimpleByElementsResponseStatus">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LifeCycleStatusCode" type="xi3:RequirementSpecificationLifeCycleStatusCode" />
+          <xsd:element minOccurs="0" name="LifeCycleStatusName" type="xi3:LANGUAGEINDEPENDENT_LONG_Name" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/AP/Common/GDT" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/AP/Common/GDT" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/BASIS/Global" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/AP/Common/GDT">
+      <xsd:import namespace="http://sap.com/xi/BASIS/Global" />
+      <xsd:simpleType name="AgencyIdentificationCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="3" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Code">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xsd:token">
+            <xsd:attribute name="listID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listVersionID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="15" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencySchemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencySchemeAgencyID" type="xi3:AgencyIdentificationCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="Date">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Date</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DecimalValue">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Value</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="31" />
+          <xsd:fractionDigits value="14" />
+          <xsd:maxInclusive value="99999999999999999.99999999999999" />
+          <xsd:minInclusive value="-99999999999999999.99999999999999" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="EXTENDED_Name">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Name</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:EXTENDED_Name.Content">
+            <xsd:attribute name="languageCode" type="xi4:LanguageCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="EXTENDED_Name.Content">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="255" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="EmployeeID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:EmployeeID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="EmployeeID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="20" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="InclusionExclusionCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="1" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Indicator">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Indicator</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:boolean" />
+      </xsd:simpleType>
+      <xsd:simpleType name="IntegerValue">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Value</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:int" />
+      </xsd:simpleType>
+      <xsd:simpleType name="IntervalBoundaryTypeCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="1" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LANGUAGEINDEPENDENT_LONG_Name">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Name</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="80" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LANGUAGEINDEPENDENT_MEDIUM_Name">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Name</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LANGUAGEINDEPENDENT_Name">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Name</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string" />
+      </xsd:simpleType>
+      <xsd:complexType name="Log">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="BusinessDocumentProcessingResultCode" type="xi3:ProcessingResultCode" />
+          <xsd:element minOccurs="0" name="MaximumLogItemSeverityCode" type="xi3:LogItemSeverityCode" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Item" type="xi3:LogItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LogItem">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TypeID" type="xi3:LogItemTypeID" />
+          <xsd:element minOccurs="0" name="CategoryCode" type="xi3:LogItemCategoryCode" />
+          <xsd:element minOccurs="0" name="SeverityCode" type="xi3:LogItemSeverityCode" />
+          <xsd:element minOccurs="0" name="ReferenceObjectNodeSenderTechnicalID" type="xi3:ObjectNodePartyTechnicalID" />
+          <xsd:element minOccurs="0" name="ReferenceMessageElementName" type="xi3:LANGUAGEINDEPENDENT_Name" />
+          <xsd:element name="Note" type="xi3:LogItemNote" />
+          <xsd:element minOccurs="0" name="NoteTemplateText" type="xi3:LogItemNoteTemplateText" />
+          <xsd:element minOccurs="0" name="LogItemNotePlaceholderSubstitutionList" type="xi3:LogItemNotePlaceholderSubstitutionList" />
+          <xsd:element minOccurs="0" name="WebURI" type="xi3:WebURI" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LogItemCategoryCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:LogItemCategoryCode.Content">
+            <xsd:attribute name="listID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listVersionID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="15" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencySchemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="listAgencySchemeAgencyID" type="xi4:AgencyIdentificationCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="LogItemCategoryCode.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="15" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemNote">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Note</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="200" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="LogItemNotePlaceholderSubstitutionList">
+        <xsd:sequence>
+          <xsd:element name="FirstPlaceholderID" type="xi3:LogItemTemplatePlaceholderID" />
+          <xsd:element minOccurs="0" name="SecondPlaceholderID" type="xi3:LogItemTemplatePlaceholderID" />
+          <xsd:element minOccurs="0" name="ThirdPlaceholderID" type="xi3:LogItemTemplatePlaceholderID" />
+          <xsd:element minOccurs="0" name="FourthPlaceholderID" type="xi3:LogItemTemplatePlaceholderID" />
+          <xsd:element name="FirstPlaceholderSubstitutionText" type="xi3:LogItemPlaceholderSubstitutionText" />
+          <xsd:element minOccurs="0" name="SecondPlaceholderSubstitutionText" type="xi3:LogItemPlaceholderSubstitutionText" />
+          <xsd:element minOccurs="0" name="ThirdPlaceholderSubstitutionText" type="xi3:LogItemPlaceholderSubstitutionText" />
+          <xsd:element minOccurs="0" name="FourthPlaceholderSubstitutionText" type="xi3:LogItemPlaceholderSubstitutionText" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="LogItemNoteTemplateText">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="73" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemPlaceholderSubstitutionText">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemSeverityCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="1" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemTemplatePlaceholderID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:length value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LogItemTypeID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="MEDIUM_Description">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Description</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:MEDIUM_Description.Content">
+            <xsd:attribute name="languageCode" type="xi4:LanguageCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="MEDIUM_Description.Content">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="80" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MeasureUnitCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="3" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NumberValue">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Value</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:int">
+          <xsd:maxInclusive value="999999999" />
+          <xsd:minInclusive value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ObjectID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:ObjectID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeVersionID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="15" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeAgencyID" type="xi4:AgencyIdentificationCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="ObjectID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="100" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ObjectNodePartyTechnicalID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="70" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ProcessingResultCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ProcessingStatusCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="1" />
+          <xsd:enumeration value="2" />
+          <xsd:enumeration value="3" />
+          <xsd:enumeration value="4" />
+          <xsd:enumeration value="5" />
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ProductID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:ProductID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="ProductID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="60" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ProductIdentifierTypeCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="PropertyID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:PropertyID.Content">
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencySchemeAgencyID" type="xi4:AgencyIdentificationCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="PropertyID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="50" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="Quantity">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Quantity</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:Quantity.Content">
+            <xsd:attribute name="unitCode" type="xi3:MeasureUnitCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="Quantity.Content">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="31" />
+          <xsd:fractionDigits value="14" />
+          <xsd:maxInclusive value="99999999999999999.99999999999999" />
+          <xsd:minInclusive value="-99999999999999999.99999999999999" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="QueryProcessingConditions">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="QueryHitsMaximumNumberValue" type="xi3:NumberValue" />
+          <xsd:element name="QueryHitsUnlimitedIndicator" type="xi3:Indicator" />
+          <xsd:element minOccurs="0" name="LastReturnedObjectID" type="xi3:ObjectID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="REGIONDEPENDENTLANGUAGE_Text">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xsd:string">
+            <xsd:attribute name="languageCode" type="xi3:REGIONDEPENDENT_LanguageCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="REGIONDEPENDENT_LanguageCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:language">
+          <xsd:maxLength value="9" />
+          <xsd:minLength value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="RequirementSpecificationID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:RequirementSpecificationID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="RequirementSpecificationID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="RequirementSpecificationLifeCycleStatusCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="1" />
+          <xsd:enumeration value="2" />
+          <xsd:enumeration value="3" />
+          <xsd:enumeration value="4" />
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="RequirementSpecificationProcessingInformationFolderProcessingInformationID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="RequirementSpecificationRequirementFolderRequirementID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="RequirementSpecificationSpecificationFolderSpecificationID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ResponseProcessingConditions">
+        <xsd:sequence>
+          <xsd:element name="ReturnedQueryHitsNumberValue" type="xi3:NumberValue" />
+          <xsd:element name="MoreHitsAvailableIndicator" type="xi3:Indicator" />
+          <xsd:element minOccurs="0" name="LastReturnedObjectID" type="xi3:ObjectID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SHORT_Description">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Description</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:SHORT_Description.Content">
+            <xsd:attribute name="languageCode" type="xi4:LanguageCode" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="SHORT_Description.Content">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SearchText">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Text</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string" />
+      </xsd:simpleType>
+      <xsd:simpleType name="SolutionProposalStatusCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="1" />
+          <xsd:enumeration value="2" />
+          <xsd:enumeration value="3" />
+          <xsd:enumeration value="4" />
+          <xsd:enumeration value="5" />
+          <xsd:enumeration value="6" />
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="SystemAdministrativeData">
+        <xsd:sequence>
+          <xsd:element name="CreationDateTime" type="xi4:GLOBAL_DateTime" />
+          <xsd:element minOccurs="0" name="CreationIdentityUUID" type="xi3:UUID" />
+          <xsd:element minOccurs="0" name="LastChangeDateTime" type="xi4:GLOBAL_DateTime" />
+          <xsd:element minOccurs="0" name="LastChangeIdentityUUID" type="xi3:UUID" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="Time">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Time</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:time">
+          <xsd:pattern value="[0-9]{2}:[0-9]{2}:[0-9]{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="UUID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xi3:UUID.Content">
+            <xsd:attribute name="schemeID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="schemeAgencyID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:token">
+                  <xsd:maxLength value="60" />
+                  <xsd:minLength value="1" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="UUID.Content">
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="36" />
+          <xsd:minLength value="36" />
+          <xsd:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VersionID">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Identifier</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="32" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="WebURI">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>URI</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:anyURI" />
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema xmlns:xi3="http://sap.com/xi/AP/Common/GDT" xmlns:xi2="http://sap.com/xi/A1S/Global" xmlns="http://sap.com/xi/BASIS/Global" xmlns:xi0="http://sap.com/xi/SAPGlobal20/Global" xmlns:xi4="http://sap.com/xi/BASIS/Global" xmlns:xi1="http://sap.com/xi/AP/Common/Global" xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:3.0" targetNamespace="http://sap.com/xi/BASIS/Global">
+      <xsd:simpleType name="AgencyIdentificationCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:enumeration value="1" />
+          <xsd:enumeration value="5" />
+          <xsd:enumeration value="6" />
+          <xsd:enumeration value="16" />
+          <xsd:enumeration value="17" />
+          <xsd:enumeration value="84" />
+          <xsd:enumeration value="107" />
+          <xsd:enumeration value="109" />
+          <xsd:enumeration value="112" />
+          <xsd:enumeration value="113" />
+          <xsd:enumeration value="114" />
+          <xsd:enumeration value="116" />
+          <xsd:enumeration value="117" />
+          <xsd:enumeration value="124" />
+          <xsd:enumeration value="130" />
+          <xsd:enumeration value="131" />
+          <xsd:enumeration value="138" />
+          <xsd:enumeration value="142" />
+          <xsd:enumeration value="146" />
+          <xsd:enumeration value="262" />
+          <xsd:enumeration value="296" />
+          <xsd:enumeration value="310" />
+          <xsd:maxLength value="3" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="DateTime">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>DateTime</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleContent>
+          <xsd:extension base="xsd:dateTime">
+            <xsd:attribute name="timeZoneCode" type="xi4:TimeZoneCode" />
+            <xsd:attribute name="daylightSavingTimeIndicator" type="xsd:boolean" />
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="GLOBAL_DateTime">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>DateTime</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:dateTime">
+          <xsd:pattern value="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(.[0-9]{1,7})?Z" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LanguageCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:language">
+          <xsd:maxLength value="2" />
+          <xsd:minLength value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TimeZoneCode">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="EN">
+            <ccts:RepresentationTerm>Code</ccts:RepresentationTerm>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:token">
+          <xsd:maxLength value="10" />
+          <xsd:minLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ProductRequirementSpecificationSimpleByElementsQuery_sync">
+    <wsdl:part name="ProductRequirementSpecificationSimpleByElementsQuery_sync" element="n1:ProductRequirementSpecificationSimpleByElementsQuery_sync" />
+  </wsdl:message>
+  <wsdl:message name="ProductRequirementSpecificationSimpleByElementsResponse_sync">
+    <wsdl:part name="ProductRequirementSpecificationSimpleByElementsResponse_sync" element="n1:ProductRequirementSpecificationSimpleByElementsResponse_sync" />
+  </wsdl:message>
+  <wsdl:message name="StandardFaultMessage">
+    <wsdl:part name="StandardFaultMessage" element="n2:StandardFaultMessage" />
+  </wsdl:message>
+  <wsdl:portType name="QueryProductRequirementSpecificationIn">
+    <wsdl:documentation>
+      <sapdoc:sapdoc xmlns:sapdoc="urn:sap:esi:documentation">
+        <sapdoc:docitem applicationComponent="AP-RSM-PRS" />
+      </sapdoc:sapdoc>
+    </wsdl:documentation>
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_QueryProductRequirementSpecificationIn" />
+    </wsp:Policy>
+    <wsdl:operation name="FindSimpleByElements">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_FindSimpleByElements" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ProductRequirementSpecificationSimpleByElementsQuery_sync" />
+      <wsdl:output message="tns:ProductRequirementSpecificationSimpleByElementsResponse_sync" />
+      <wsdl:fault name="StandardFaultMessage" message="tns:StandardFaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="binding_SOAP12" type="tns:QueryProductRequirementSpecificationIn">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_binding_SOAP12" />
+    </wsp:Policy>
+    <wsoap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindSimpleByElements">
+      <wsoap12:operation soapAction="http://sap.com/xi/A1S/Global/QueryProductRequirementSpecificationIn/FindSimpleByElementsRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StandardFaultMessage">
+        <wsoap12:fault use="literal" name="StandardFaultMessage" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="binding" type="tns:QueryProductRequirementSpecificationIn">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_binding" />
+    </wsp:Policy>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindSimpleByElements">
+      <soap:operation soapAction="http://sap.com/xi/A1S/Global/QueryProductRequirementSpecificationIn/FindSimpleByElementsRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="StandardFaultMessage">
+        <soap:fault use="literal" name="StandardFaultMessage" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="service">
+    <wsdl:port name="binding_SOAP12" binding="tns:binding_SOAP12">
+      <wsoap12:address location="https://my342476.sapbydesign.com/sap/bc/srt/scs/sap/queryproductrequirementspecifi?sap-vhost=my342476.sapbydesign.com" />
+    </wsdl:port>
+    <wsdl:port name="binding" binding="tns:binding">
+      <soap:address location="https://my342476.sapbydesign.com/sap/bc/srt/scs/sap/queryproductrequirementspecifi?sap-vhost=my342476.sapbydesign.com" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

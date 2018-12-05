@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="MiddlewareApiUrl" value="http://mw.ci.sourceability.com" />
+  <setParameter name="SapUserName" value="_DEV" />
+  <setParameter name="SapPassword" value="Welcome1" />
+  <setParameter name="Compilation.Debug" value="false" />
+  
+  <setParameter name="SAP.AccountCustomerSapService.QueryCustomerIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/querycustomerin1?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.AccountManageCustomerService.ManageCustomerIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/managecustomerin1?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.AccountHierarchyManageService.ManageBusinessPartnerHierarchyIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/managebusinesspartnerhierarchy?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.AccountHierarchyQueryService.QueryBusinessPartnerHierarchy" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/querybusinesspartnerhierarchy?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.SalesOrderQueryService.QuerySalesOrderIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/querysalesorderin3?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.SalesOrderManageService.ManageSalesOrderIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/managesalesorderin5?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.ProductSpecManageService.ManagePRSIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/manageprsin?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.ProductSpecQueryService.QueryProductRequirementSpecificationIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/queryproductrequirementspecifi?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.PurchaseOrderManageService.ManagePurchaseOrderIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/managepurchaseorderin?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.BusinessPartnerManageService.ManageBusinessPartnerIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/managebusinesspartnerin3?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.BusinessPartnerQueryService.QueryBusinessPartnerIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/querybusinesspartnerin1?sap-vhost=my342476.sapbydesign.com" />
+  <setParameter name="SAP.SupplierManageService.ManageSupplierIn" value="https://my338143.sapbydesign.com/sap/bc/srt/scs/sap/managesupplierin1?sap-vhost=my342476.sapbydesign.com" />
+</parameters>

@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CB876625-6F12-4E5D-AABF-DA953302D392}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sourceportal.SAP.Services</RootNamespace>
+    <AssemblyName>Sourceportal.SAP.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.5.0\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.5.0\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.5.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\AccountHierarchyService.cs" />
+    <Compile Include="Accounts\AccountService.cs" />
+    <Compile Include="Accounts\BusinessPartnerService.cs" />
+    <Compile Include="Accounts\IAccountHierarchyService.cs" />
+    <Compile Include="Accounts\IAccountService.cs" />
+    <Compile Include="Accounts\IBusinessPartnerService.cs" />
+    <Compile Include="Accounts\ISupplierService.cs" />
+    <Compile Include="Accounts\SupplierService.cs" />
+    <Compile Include="ApiService\IRestClient.cs" />
+    <Compile Include="ApiService\RestClient.cs" />
+    <Compile Include="Connected Services\AccountCustomerSapService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AccountHierarchyManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AccountHierarchyQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\AccountManageCustomerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BusinessPartnerManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BusinessPartnerQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MaterialManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MaterialQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MaterialValuationDataService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProductSpecManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ProductSpecQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\PurchaseOrderManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\QcInspectionSapService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SalesOrderManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SalesOrderQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SupplierManageService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\SupplierQueryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CustomConfigs\SapOrganizationsSection.cs" />
+    <Compile Include="ErrorManagement\GlobalApiException.cs" />
+    <Compile Include="Materials\IMaterialService.cs" />
+    <Compile Include="Materials\MaterialService.cs" />
+    <Compile Include="Middleware\IMiddlewareService.cs" />
+    <Compile Include="Middleware\MiddlewareService.cs" />
+    <Compile Include="ProductSpec\IProductSpecService.cs" />
+    <Compile Include="ProductSpec\ProductSpecService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrders\IPurchaseOrderService.cs" />
+    <Compile Include="PurchaseOrders\PurchaseOrderService.cs" />
+    <Compile Include="QC\IQcInspectionService.cs" />
+    <Compile Include="QC\IQcInspectionSyncRequestCreator.cs" />
+    <Compile Include="QC\QcInspectionService.cs" />
+    <Compile Include="QC\QcInspectionSyncRequestCreator.cs" />
+    <Compile Include="SalesOrders\ISalesOrderService.cs" />
+    <Compile Include="SalesOrders\SalesOrderService.cs" />
+    <Compile Include="SAP\ISapService.cs" />
+    <Compile Include="Accounts\IBusinessPartnerSyncRequestCreator.cs" />
+    <Compile Include="SAP\SapService.cs" />
+    <Compile Include="Accounts\BusinessPartnerSyncRequestCreator.cs" />
+    <Compile Include="Triggers\ITriggerService.cs" />
+    <Compile Include="Triggers\TriggerService.cs" />
+    <Compile Include="Utils\EnumExtensions.cs" />
+    <Compile Include="Utils\ISapDbHelper.cs" />
+    <Compile Include="Utils\SapDbHelper.cs" />
+    <Compile Include="Utils\SapLogParser.cs" />
+    <Compile Include="Utils\SapXmlExtractor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sourceportal.SAP.DB\Sourceportal.SAP.DB.csproj">
+      <Project>{DA6E327B-AEEB-4B4B-89DA-67651A74AEEF}</Project>
+      <Name>Sourceportal.SAP.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sourceportal.SAP.Domain\Sourceportal.SAP.Domain.csproj">
+      <Project>{2F12DF12-A95F-41BB-BCCB-4C7CDEFC33B4}</Project>
+      <Name>Sourceportal.SAP.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\AccountCustomerSapService\QueryCustomerIn.wsdl" />
+    <None Include="Connected Services\AccountCustomerSapService\Sourceportal.SAP.Services.AccountCustomerSapService.CustomerResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountCustomerSapService\Sourceportal.SAP.Services.AccountCustomerSapService.FindByCommunicationDataResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountCustomerSapService\Sourceportal.SAP.Services.AccountCustomerSapService.FindByElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountCustomerSapService\Sourceportal.SAP.Services.AccountCustomerSapService.FindByIdentificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountHierarchyManageService\ManageBusinessPartnerHierarchyIn.wsdl" />
+    <None Include="Connected Services\AccountHierarchyManageService\Sourceportal.SAP.Services.AccountHierarchyManageService.BusinessPartnerHierarchyMaintainConfirmationMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountHierarchyManageService\Sourceportal.SAP.Services.AccountHierarchyManageService.CheckMaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountHierarchyManageService\Sourceportal.SAP.Services.AccountHierarchyManageService.MaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountHierarchyQueryService\QueryBusinessPartnerHierarchy.wsdl" />
+    <None Include="Connected Services\AccountHierarchyQueryService\Sourceportal.SAP.Services.AccountHierarchyQueryService.BusinessPartnerHierarchyResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountHierarchyQueryService\Sourceportal.SAP.Services.AccountHierarchyQueryService.FindByIdentificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountManageCustomerService\ManageCustomerIn.wsdl" />
+    <None Include="Connected Services\AccountManageCustomerService\Sourceportal.SAP.Services.AccountManageCustomerService.CheckMaintainBundle_V1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountManageCustomerService\Sourceportal.SAP.Services.AccountManageCustomerService.CustomerBundleMaintainConfirmationMessage_sync_V1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\AccountManageCustomerService\Sourceportal.SAP.Services.AccountManageCustomerService.MaintainBundle_V1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BusinessPartnerManageService\ManageBusinessPartnerIn.wsdl" />
+    <None Include="Connected Services\BusinessPartnerManageService\Sourceportal.SAP.Services.BusinessPartnerManageService.BusinessPartnerBundleMaintainConfirmationMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BusinessPartnerManageService\Sourceportal.SAP.Services.BusinessPartnerManageService.CheckMaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BusinessPartnerManageService\Sourceportal.SAP.Services.BusinessPartnerManageService.MaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BusinessPartnerQueryService\QueryBusinessPartnerIn.wsdl" />
+    <None Include="Connected Services\BusinessPartnerQueryService\Sourceportal.SAP.Services.BusinessPartnerQueryService.BusinessPartnerResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\BusinessPartnerQueryService\Sourceportal.SAP.Services.BusinessPartnerQueryService.FindByIdentificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialManageService\ManageMaterialIn.wsdl" />
+    <None Include="Connected Services\MaterialManageService\Sourceportal.SAP.Services.MaterialManageService.CheckMaintainBundle_V1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialManageService\Sourceportal.SAP.Services.MaterialManageService.MaintainBundle_V1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialManageService\Sourceportal.SAP.Services.MaterialManageService.MaterialMaintainConfirmationBundleMessage_sync_V1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialQueryService\QueryMaterialIn.wsdl" />
+    <None Include="Connected Services\MaterialQueryService\Sourceportal.SAP.Services.MaterialQueryService.FindByElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialQueryService\Sourceportal.SAP.Services.MaterialQueryService.MaterialByElementsResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialValuationDataService\ManageMaterialValuationDataIn.wsdl" />
+    <None Include="Connected Services\MaterialValuationDataService\Sourceportal.SAP.Services.MaterialValuationDataService.CheckMaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialValuationDataService\Sourceportal.SAP.Services.MaterialValuationDataService.MaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterialValuationDataService\Sourceportal.SAP.Services.MaterialValuationDataService.MaterialValuationDataMaintainConfirmationBundleMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductSpecManageService\ManagePRSIn.wsdl" />
+    <None Include="Connected Services\ProductSpecManageService\Sourceportal.SAP.Services.ProductSpecManageService.CheckMaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductSpecManageService\Sourceportal.SAP.Services.ProductSpecManageService.MaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductSpecManageService\Sourceportal.SAP.Services.ProductSpecManageService.ProductRequirementSpecificationByVersionUUIDResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductSpecManageService\Sourceportal.SAP.Services.ProductSpecManageService.PRSMaintainConfirmationBundleMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductSpecManageService\Sourceportal.SAP.Services.ProductSpecManageService.ReadPRSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductSpecQueryService\QueryProductRequirementSpecificationIn.wsdl" />
+    <None Include="Connected Services\ProductSpecQueryService\Sourceportal.SAP.Services.ProductSpecQueryService.FindSimpleByElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProductSpecQueryService\Sourceportal.SAP.Services.ProductSpecQueryService.ProductRequirementSpecificationSimpleByElementsResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PurchaseOrderManageService\ManagePurchaseOrderIn.wsdl" />
+    <None Include="Connected Services\PurchaseOrderManageService\Sourceportal.SAP.Services.PurchaseOrderManageService.ManagePurchaseOrderExcelUploadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PurchaseOrderManageService\Sourceportal.SAP.Services.PurchaseOrderManageService.ManagePurchaseOrderInCheckMaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PurchaseOrderManageService\Sourceportal.SAP.Services.PurchaseOrderManageService.ManagePurchaseOrderInReadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PurchaseOrderManageService\Sourceportal.SAP.Services.PurchaseOrderManageService.PurchaseOrderByIDResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PurchaseOrderManageService\Sourceportal.SAP.Services.PurchaseOrderManageService.PurchaseOrderMaintainConfirmationBundleMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PurchaseOrderManageService\Sourceportal.SAP.Services.PurchaseOrderManageService.PurchaseOrderUploadConfirmationMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\QcInspection.wsdl" />
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.MaterialInspectionQueryByDecisionSimpleByConfirmationMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.MaterialInspectionQueryByIDSimpleByConfirmationMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.MaterialInspectionQueryByInspectionCriteriaSimpleByConfirmationMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.MaterialInspectionReadByIDResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.MaterialInspectionUpdateConfirmationMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.QueryByDecisionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.QueryByIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.QueryByInspectionCriteriaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.ReadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\QcInspectionSapService\Sourceportal.SAP.Services.QcInspectionSapService.UpdateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SalesOrderManageService\ManageSalesOrderIn.wsdl" />
+    <None Include="Connected Services\SalesOrderManageService\Sourceportal.SAP.Services.SalesOrderManageService.CheckMaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SalesOrderManageService\Sourceportal.SAP.Services.SalesOrderManageService.MaintainBundleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SalesOrderManageService\Sourceportal.SAP.Services.SalesOrderManageService.SalesOrderMaintainConfirmationBundleMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SalesOrderQueryService\QuerySalesOrderIn.wsdl" />
+    <None Include="Connected Services\SalesOrderQueryService\Sourceportal.SAP.Services.SalesOrderQueryService.FindByElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SalesOrderQueryService\Sourceportal.SAP.Services.SalesOrderQueryService.SalesOrderByElementsResponseMessage_sync.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SupplierManageService\ManageSupplierIn.wsdl" />
+    <None Include="Connected Services\SupplierManageService\Sourceportal.SAP.Services.SupplierManageService.CheckMaintainBundle_V1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SupplierManageService\Sourceportal.SAP.Services.SupplierManageService.MaintainBundle_V1Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SupplierManageService\Sourceportal.SAP.Services.SupplierManageService.SupplierBundleMaintainConfirmationMessage_sync_V1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SupplierQueryService\QuerySupplierIn.wsdl" />
+    <None Include="Connected Services\SupplierQueryService\Sourceportal.SAP.Services.SupplierQueryService.FindByElementsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SupplierQueryService\Sourceportal.SAP.Services.SupplierQueryService.SupplierByElementsResponseMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\AccountCustomerSapService\" />
+    <WCFMetadataStorage Include="Connected Services\AccountHierarchyManageService\" />
+    <WCFMetadataStorage Include="Connected Services\AccountHierarchyQueryService\" />
+    <WCFMetadataStorage Include="Connected Services\AccountManageCustomerService\" />
+    <WCFMetadataStorage Include="Connected Services\BusinessPartnerManageService\" />
+    <WCFMetadataStorage Include="Connected Services\BusinessPartnerQueryService\" />
+    <WCFMetadataStorage Include="Connected Services\MaterialManageService\" />
+    <WCFMetadataStorage Include="Connected Services\MaterialQueryService\" />
+    <WCFMetadataStorage Include="Connected Services\MaterialValuationDataService\" />
+    <WCFMetadataStorage Include="Connected Services\ProductSpecManageService\" />
+    <WCFMetadataStorage Include="Connected Services\ProductSpecQueryService\" />
+    <WCFMetadataStorage Include="Connected Services\PurchaseOrderManageService\" />
+    <WCFMetadataStorage Include="Connected Services\QcInspectionSapService\" />
+    <WCFMetadataStorage Include="Connected Services\SalesOrderManageService\" />
+    <WCFMetadataStorage Include="Connected Services\SalesOrderQueryService\" />
+    <WCFMetadataStorage Include="Connected Services\SupplierManageService\" />
+    <WCFMetadataStorage Include="Connected Services\SupplierQueryService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountCustomerSapService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountCustomerSapService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountCustomerSapService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountManageCustomerService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountManageCustomerService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountManageCustomerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountHierarchyManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountHierarchyManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountHierarchyManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountHierarchyQueryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountHierarchyQueryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\AccountHierarchyQueryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesOrderQueryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesOrderQueryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesOrderQueryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesOrderManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesOrderManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SalesOrderManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductSpecManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductSpecManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductSpecManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductSpecQueryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductSpecQueryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProductSpecQueryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PurchaseOrderManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PurchaseOrderManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PurchaseOrderManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BusinessPartnerManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BusinessPartnerManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BusinessPartnerManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BusinessPartnerQueryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BusinessPartnerQueryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BusinessPartnerQueryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SupplierManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SupplierManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SupplierManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialManageService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialManageService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialManageService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialValuationDataService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialValuationDataService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialValuationDataService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialQueryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialQueryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\MaterialQueryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SupplierQueryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SupplierQueryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SupplierQueryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\QcInspectionSapService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\QcInspectionSapService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\QcInspectionSapService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

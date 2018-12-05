@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="MiddlewareApiUrl" defaultvalue="" description="MW API Url" tags="">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='MiddlewareApiUrl']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SapUserName" defaultvalue="" description="Username for SAP" tags="">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='SapUser']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SapPassword" defaultvalue="" description="Password for SAP" tags="">
+    <parameterentry kind="XmlFile" match="/configuration/appSettings/add[@key='SapPass']/@value" scope="\\web.config$" />
+  </parameter>
+  <parameter name="Compilation.Debug" defaultvalue="true" description="Compilation.Debug description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.web/compilation/@debug" scope="\\web.config$" />
+  </parameter>
+  
+  <parameter name="SAP.AccountCustomerSapService.QueryCustomerIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='AccountCustomerSapService.QueryCustomerIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.AccountManageCustomerService.ManageCustomerIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='AccountManageCustomerService.ManageCustomerIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.AccountHierarchyManageService.ManageBusinessPartnerHierarchyIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='AccountHierarchyManageService.ManageBusinessPartnerHierarchyIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.AccountHierarchyQueryService.QueryBusinessPartnerHierarchy" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='AccountHierarchyQueryService.QueryBusinessPartnerHierarchy']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.SalesOrderQueryService.QuerySalesOrderIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='SalesOrderQueryService.QuerySalesOrderIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.SalesOrderManageService.ManageSalesOrderIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='SalesOrderManageService.ManageSalesOrderIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.ProductSpecManageService.ManagePRSIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='ProductSpecManageService.ManagePRSIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.ProductSpecQueryService.QueryProductRequirementSpecificationIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='ProductSpecQueryService.QueryProductRequirementSpecificationIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.PurchaseOrderManageService.ManagePurchaseOrderIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='PurchaseOrderManageService.ManagePurchaseOrderIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.BusinessPartnerManageService.ManageBusinessPartnerIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='BusinessPartnerManageService.ManageBusinessPartnerIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.BusinessPartnerQueryService.QueryBusinessPartnerIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='BusinessPartnerQueryService.QueryBusinessPartnerIn']/@address" scope="\\web.config$" />
+  </parameter>
+  <parameter name="SAP.SupplierManageService.ManageSupplierIn" defaultvalue="" description="WebApiUrl description." tags="">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='SupplierManageService.ManageSupplierIn']/@address" scope="\\web.config$" />
+  </parameter>
+  
+  <!--Example of computed default value <parameter name="SAP.AccountCustomerSapService.QueryCustomerIn" defaultvalue="https://my{SAP Verion}.sapbydesign.com/sap/bc/srt/scs/sap/querycustomerin1?sap-vhost=my{SAP Verion}.sapbydesign.com" description="WebApiUrl description." tags="Hidden">
+    <parameterentry kind="XmlFile" match="/configuration/system.serviceModel/client/endpoint[@contract='AccountCustomerSapService.QueryCustomerIn']/@address" scope="\\web.config$" />
+  </parameter>-->
+</parameters>
